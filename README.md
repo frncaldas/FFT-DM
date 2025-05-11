@@ -22,10 +22,9 @@ Choose the config files from the config folder.
 
 Choose from any combination of model and dataset
 
-```
 
-## Fast experiment - ettm1 dataset 192-forecasting
-#(example using Diffwave, you can choose which model)
+# Fast experiment - ettm1 dataset 192-forecasting
+(example using Diffwave, you can choose which model)
 ```
 python3 train.py -c config/config_DiffWave_ettm1_FDM.json
 python3 inference.py -c config/config/config_DiffWave_ettm1_FDM.json
