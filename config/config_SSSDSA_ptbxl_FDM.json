@@ -1,0 +1,54 @@
+{
+    "diffusion_config": {
+        "T": 50,
+        "beta_0": 0.0002,
+        "beta_T": 0.04
+    },
+    "sashimi_config": {
+        "in_channels": 12, 
+        "out_channels":12,
+        "d_model": 128, 
+        "n_layers":6,
+        "diffusion_step_embed_dim_in": 128,
+        "diffusion_step_embed_dim_mid": 512,
+        "diffusion_step_embed_dim_out": 512,
+        "label_embed_dim": 128,
+        "label_embed_classes": 71,
+        "bidirectional":1,
+        "s4_lmax":1000,
+        "s4_d_state":64,
+        "s4_dropout":0.0,
+        "s4_bidirectional":1
+    },
+    "train_config": {
+        "output_directory": "./results_SSSDSA/PTB-XL/800",
+        "ckpt_iter": "max",
+        "iters_per_ckpt": 10000,
+        "iters_per_logging": 10000,
+        "n_iters": 150000,
+        "learning_rate": 2e-4,
+        "only_generate_missing": 1,
+        "max_components": 3,
+        "use_model": 1,
+        "masking": "forecast",
+        "missing_k": 800,
+        "fixed_components": 1
+    },
+    "trainset_config": {
+        "train_data_path": "./datasets/PTB-XL/train_ptbxl_1000.npy",
+        "test_data_path": "./datasets/PTB-XL/test_ptbxl_1000.npy",
+        "segment_length": 1000,
+        "sampling_rate": 1000,
+         "val_data_path": "./datasets/PTB-XL/val_ptbxl_1000.npy",
+        "batch_size": 128,
+        "order": "remainder_last",
+        "loss": "mse"
+    },
+    "gen_config": {
+        "output_directory": "./results_SSSDSA/PTB-XL/800",
+        "ckpt_path": "./results_SSSDSA/PTB-XL/800",
+        "max_components_gen": 3,
+        "sampling_with_dk": 0,
+        "num_obs": 100
+    }
+}

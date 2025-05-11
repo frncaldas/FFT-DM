@@ -1,0 +1,44 @@
+{
+    "diffusion_config":{
+        "T": 200,
+        "beta_0": 0.0001,
+        "beta_T": 0.02
+    },
+    "wavenet_config": {
+        "in_channels": 14,
+        "out_channels": 14,
+        "num_res_layers": 36,
+        "res_channels": 256,
+        "skip_channels": 256,
+        "dilation_cycle": 12,
+        "diffusion_step_embed_dim_in": 128,
+        "diffusion_step_embed_dim_mid": 512,
+        "diffusion_step_embed_dim_out": 512
+    },
+    "train_config": {
+        "output_directory": "./results/mujoco/90_1",
+        "ckpt_iter": "max",
+        "iters_per_ckpt": 10000,
+        "iters_per_logging": 10000,
+        "n_iters": 200000,
+        "learning_rate": 2e-5,
+        "only_generate_missing": 1,
+        "max_components": 7,
+        "use_model": 0,
+        "masking": "forecast",
+        "missing_k": 90,
+        "fixed_components": 0
+    },
+    "trainset_config":{
+        "train_data_path": "./datasets/Mujoco/train_mujoco.npy",
+        "test_data_path": "./datasets/Mujoco/test_mujoco.npy",
+        "segment_length": 100,
+        "sampling_rate": 100
+    },
+    "gen_config":{
+        "output_directory": "./results/mujoco/90_1",
+        "ckpt_path": "./results/mujoco/90_1",
+        "max_components_gen": 2,
+        "sampling_with_dk": 0
+    }
+}

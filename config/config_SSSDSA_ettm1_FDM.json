@@ -1,0 +1,53 @@
+{
+    "diffusion_config": {
+        "T": 50,
+        "beta_0": 0.0004,
+        "beta_T": 0.06
+    },
+    "sashimi_config": {
+        "in_channels": 7, 
+        "out_channels":7,
+        "d_model": 128, 
+        "n_layers":6,
+        "diffusion_step_embed_dim_in": 128,
+        "diffusion_step_embed_dim_mid": 512,
+        "diffusion_step_embed_dim_out": 512,
+        "label_embed_dim": 128,
+        "label_embed_classes": 71,
+        "bidirectional":1,
+        "s4_lmax":2000,
+        "s4_d_state":64,
+        "s4_dropout":0.0,
+        "s4_bidirectional":1
+    },
+    "train_config": {
+        "output_directory": "./results_SSSDSA/ETTm1/864",
+        "ckpt_iter": "max",
+        "iters_per_ckpt": 10000,
+        "iters_per_logging": 10000,
+        "n_iters": 150000,
+        "learning_rate": 2e-4,
+        "only_generate_missing": 1,
+        "max_components": 3,
+        "use_model": 1,
+        "masking": "forecast",
+        "missing_k": 864,
+        "fixed_components": 1
+    },
+    "trainset_config": {
+        "train_data_path": "./datasets/ETTm1/train_ettm1_1056.npy",
+        "test_data_path": "./datasets/ETTm1/test_ettm1_1056.npy",
+        "segment_length": 1000,
+        "sampling_rate": 1000,
+        "val_data_path": "./datasets/ETTm1/val_ettm1_1056.npy",
+        "batch_size": 128,
+        "loss": "mse"
+    },
+    "gen_config": {
+        "output_directory": "./results_SSSDSA/ETTm1/864",
+        "ckpt_path": "./results_SSSDSA/ETTm1/864",
+        "max_components_gen": 4,
+        "sampling_with_dk": 0,
+        "num_obs": 100  
+    }
+}

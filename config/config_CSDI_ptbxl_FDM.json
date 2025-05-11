@@ -1,0 +1,50 @@
+{
+    "diffusion_config": {
+        "T": 50,
+        "beta_0": 0.0002,
+        "beta_T": 0.04
+    },
+    "wavenet_config": {
+        "in_channels": 12,
+        "out_channels": 12,
+        "num_res_layers": 4,
+        "res_channels": 64,
+        "skip_channels": 64,
+        "seq_len": 1000,
+        "ff_dim": 64,
+        "diffusion_step_embed_dim_in": 128,
+        "diffusion_step_embed_dim_mid": 128,
+        "diffusion_step_embed_dim_out": 128
+    },
+    "train_config": {
+        "output_directory": "./results_CSDI/Electricity/800",
+        "ckpt_iter": "max",
+        "iters_per_ckpt": 10000,
+        "iters_per_logging": 1000,
+        "n_iters": 100000,
+        "learning_rate": 2e-4, 
+        "only_generate_missing": 1,
+        "max_components": 3,
+        "use_model": 3,
+        "masking": "forecast",
+        "missing_k": 800,
+        "fixed_components": 1
+    },
+    "trainset_config": {
+        "train_data_path": "./datasets/PTB-XL/train_ptbxl_1000.npy",
+        "test_data_path": "./datasets/PTB-XL/test_ptbxl_1000.npy",
+        "segment_length": 1000,
+        "sampling_rate": 1000,
+        "val_data_path": "./datasets/PTB-XL/val_ptbxl_1000.npy",
+        "batch_size": 128,  
+        "order": "remainder_last",
+        "loss" : "mse"
+    },
+    "gen_config": {
+        "output_directory": "./results_CSDI/PTB-XL/800",
+        "ckpt_path": "./resultsCSDI/PTB-XL/800",
+        "max_components_gen": 4,
+        "sampling_with_dk": 0,
+        "num_obs":100
+    }
+}

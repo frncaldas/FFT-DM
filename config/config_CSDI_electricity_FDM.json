@@ -1,0 +1,50 @@
+{
+    "diffusion_config": {
+        "T": 66,
+        "beta_0": 0.0004,
+        "beta_T": 0.06
+    },
+    "wavenet_config": {
+        "in_channels": 1,
+        "out_channels": 1,
+        "num_res_layers": 4,
+        "res_channels": 64,
+        "skip_channels": 64,
+        "seq_len": 100,
+        "ff_dim": 64,
+        "diffusion_step_embed_dim_in": 128,
+        "diffusion_step_embed_dim_mid": 128,
+        "diffusion_step_embed_dim_out": 128
+    },
+    "train_config": {
+        "output_directory": "./results_CSDI/Electricity/76",
+        "ckpt_iter": "max",
+        "iters_per_ckpt": 10000,
+        "iters_per_logging": 1000,
+        "n_iters": 100000,
+        "learning_rate": 2e-4, 
+        "only_generate_missing": 1,
+        "max_components": 2,
+        "use_model": 3,
+        "masking": "forecast",
+        "missing_k": 76,
+        "fixed_components": 1
+    },
+    "trainset_config": {
+        "train_data_path": "./datasets/Electricity/train_electricity.npy",
+        "test_data_path": "./datasets/Electricity/test_electricity.npy",
+        "segment_length": 100,
+        "sampling_rate": 100,
+        "val_data_path": "./datasets/Electricity/val_electricity.npy",
+        "batch_size": 128,  
+        "order": "remainder_last",
+        "loss" : "mse"
+    },
+    "gen_config": {
+        "output_directory": "./results_CSDI/Electricity/76",
+        "ckpt_path": "./resultsCSDI/Electricity/76",
+        "max_components_gen": 3,
+        "sampling_with_dk": 0,
+        "num_obs":100
+    }
+}
